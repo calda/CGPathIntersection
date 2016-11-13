@@ -15,28 +15,40 @@ class CGPathIntersectionTests: XCTestCase {
         CGPathImage.size = CGSize(width: 200, height: 200)
     }
     
-    func testCreatesImageFromPath() {
-        let path = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
-        let pathImage = CGPathImage(from: path)
+    func testNoIntersectionFromParallelLines() {
+        let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 170, y: 120))
+        let path2 = CGPath.line(from: CGPoint(x: 10, y: 10), to: CGPoint(x: 120, y: 120))
         
-        XCTAssertNotNil(pathImage.image)
+        XCTAssertFalse(path1.intersects(path: path2))
+        XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
     }
     
-    func testCombinesImage() {
+    func testOneIntersectionFromPerpendicularLines() {
         let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
-        let pathImage1 = CGPathImage(from: path1)
-        
         let path2 = CGPath.line(from: CGPoint(x: 180, y: 20), to: CGPoint(x: 20, y: 180))
-        let pathImage2 = CGPathImage(from: path2)
         
-        let combinedImage = pathImage1.image!.combined(with: pathImage2.image!)
-        XCTAssertNotNil(combinedImage)
+        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertEqual(path1.intersectionPoints(with: path2).count, 1)
+    }
+    
+    func testZeroIntersectionFromCircleAndLine() {
+        let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
+        let path2 = CGPath.circle(at: CGPoint(x: 100, y: 20), withRadius: 20.0)
         
-        let intersectionPixels = combinedImage.pixels(withAlphaDarkerThan: 0.6)
-        XCTAssert(intersectionPixels.count > 0)
+        XCTAssertFalse(path1.intersects(path: path2))
+        XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
+    }
+    
+    func testTwoIntersectionFromCircleAndLine() {
+        let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
+        let path2 = CGPath.circle(at: CGPoint(x: 100, y: 100), withRadius: 40.0)
+        
+        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertEqual(path1.intersectionPoints(with: path2).count, 1)
     }
     
 }
+
 
 extension CGPath {
     
@@ -46,6 +58,11 @@ extension CGPath {
         bezierPath.addLine(to: end)
         bezierPath.close()
         
+        return bezierPath.cgPath
+    }
+    
+    static func circle(at center: CGPoint, withRadius radius: CGFloat) -> CGPath {
+        let bezierPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * CGFloat(M_PI), clockwise: true)
         return bezierPath.cgPath
     }
     

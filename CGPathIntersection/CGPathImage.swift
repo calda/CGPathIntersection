@@ -17,9 +17,11 @@ public struct CGPathImage {
     
     //MARK: - Draw individual image
     
-    public let image: UIImage?
+    let image: UIImage?
+    let boundingBox: CGRect
     
     public init(from path: CGPath) {
+        self.boundingBox = path.boundingBoxOfPath
         
         UIGraphicsBeginImageContextWithOptions(CGPathImage.size, false, 1.0)
         guard let context = UIGraphicsGetCurrentContext() else {
@@ -47,8 +49,38 @@ public struct CGPathImage {
         return self.intersectionPoints(with: path).count > 0
     }
     
-    public func intersectionPoints(with path: CGPathImage) -> [CGPoint] {
-        return []
+    
+    public func intersectionPoints(with other: CGPathImage) -> [CGPoint] {
+        
+        //fetch raw pixel data
+        guard let (width1, pixels1) = self.image?.pixelData else { return [] }
+        guard let (width2, pixels2) = other.image?.pixelData else { return [] }
+        
+        var intersectionPixels = [CGPoint]()
+        
+        let rect = self.boundingBox.intersection(other.boundingBox)
+        
+        //iterate over intersection of bounding boxes
+        for x in Int(rect.origin.x) ... Int(rect.origin.x + rect.size.width) {
+            for y in Int(rect.origin.y) ..< Int(rect.origin.y + rect.size.height) {
+                
+                let alpha1 = pixels1.alphaAt(x: CGFloat(x), y: CGFloat(y), imageWidth: width1)
+                let alpha2 = pixels2.alphaAt(x: CGFloat(x), y: CGFloat(y), imageWidth: width2)
+                
+                //if intersection
+                if alpha1 > 0.05 && alpha2 > 0.05 {
+                    intersectionPixels.append(CGPoint(x: x, y: y))
+                }
+            }
+        }
+        
+        return intersectionPixels.coalescePoints()
     }
     
 }
+
+
+
+
+
+
