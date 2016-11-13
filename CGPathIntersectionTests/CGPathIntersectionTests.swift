@@ -7,30 +7,46 @@
 //
 
 import XCTest
-@testable import CGPathIntersection
+import CGPathIntersection
 
 class CGPathIntersectionTests: XCTestCase {
     
     override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        CGPathImage.size = CGSize(width: 200, height: 200)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testCreatesImageFromPath() {
+        let path = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
+        let pathImage = CGPathImage(from: path)
+        
+        XCTAssertNotNil(pathImage.image)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCombinesImage() {
+        let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
+        let pathImage1 = CGPathImage(from: path1)
+        
+        let path2 = CGPath.line(from: CGPoint(x: 180, y: 20), to: CGPoint(x: 20, y: 180))
+        let pathImage2 = CGPathImage(from: path2)
+        
+        let combinedImage = pathImage1.image!.combined(with: pathImage2.image!)
+        XCTAssertNotNil(combinedImage)
+        
+        let intersectionPixels = combinedImage.pixels(withAlphaDarkerThan: 0.6)
+        XCTAssert(intersectionPixels.count > 0)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+}
+
+extension CGPath {
+    
+    static func line(from start: CGPoint, to end: CGPoint) -> CGPath {
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: start)
+        bezierPath.addLine(to: end)
+        bezierPath.close()
+        
+        return bezierPath.cgPath
     }
     
 }

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		2EFEF6881DD8D48800EA383E /* CGPathIntersection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFEF67E1DD8D48800EA383E /* CGPathIntersection.framework */; };
 		2EFEF68D1DD8D48800EA383E /* CGPathIntersectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF68C1DD8D48800EA383E /* CGPathIntersectionTests.swift */; };
-		2EFEF68F1DD8D48800EA383E /* CGPathIntersection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EFEF6811DD8D48800EA383E /* CGPathIntersection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EFEF6991DD8D5F000EA383E /* CGPathImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */; };
+		2EFEF69B1DD8E03200EA383E /* CGPath+Intersections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */; };
+		2EFEF69D1DD8E0B600EA383E /* UIImage+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69C1DD8E0B600EA383E /* UIImage+Combine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +26,13 @@
 
 /* Begin PBXFileReference section */
 		2EFEF67E1DD8D48800EA383E /* CGPathIntersection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CGPathIntersection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EFEF6811DD8D48800EA383E /* CGPathIntersection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGPathIntersection.h; sourceTree = "<group>"; };
 		2EFEF6821DD8D48800EA383E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGPathIntersectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFEF68C1DD8D48800EA383E /* CGPathIntersectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPathIntersectionTests.swift; sourceTree = "<group>"; };
 		2EFEF68E1DD8D48800EA383E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPathImage.swift; sourceTree = "<group>"; };
+		2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPath+Intersections.swift"; sourceTree = "<group>"; };
+		2EFEF69C1DD8E0B600EA383E /* UIImage+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Combine.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +75,10 @@
 		2EFEF6801DD8D48800EA383E /* CGPathIntersection */ = {
 			isa = PBXGroup;
 			children = (
-				2EFEF6811DD8D48800EA383E /* CGPathIntersection.h */,
 				2EFEF6821DD8D48800EA383E /* Info.plist */,
+				2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */,
+				2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */,
+				2EFEF69C1DD8E0B600EA383E /* UIImage+Combine.swift */,
 			);
 			path = CGPathIntersection;
 			sourceTree = "<group>";
@@ -93,7 +99,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EFEF68F1DD8D48800EA383E /* CGPathIntersection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +154,7 @@
 					2EFEF67D1DD8D48800EA383E = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = FZ89A5SZ7C;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					2EFEF6861DD8D48800EA383E = {
@@ -198,6 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EFEF69D1DD8E0B600EA383E /* UIImage+Combine.swift in Sources */,
+				2EFEF6991DD8D5F000EA383E /* CGPathImage.swift in Sources */,
+				2EFEF69B1DD8E03200EA383E /* CGPath+Intersections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +331,7 @@
 		2EFEF6931DD8D48800EA383E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FZ89A5SZ7C;
@@ -334,6 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +352,7 @@
 		2EFEF6941DD8D48800EA383E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FZ89A5SZ7C;
@@ -360,6 +372,7 @@
 		2EFEF6961DD8D48800EA383E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = FZ89A5SZ7C;
 				INFOPLIST_FILE = CGPathIntersectionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +385,7 @@
 		2EFEF6971DD8D48800EA383E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = FZ89A5SZ7C;
 				INFOPLIST_FILE = CGPathIntersectionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
