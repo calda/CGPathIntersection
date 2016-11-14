@@ -11,19 +11,22 @@ import CoreGraphics
 
 public struct CGPathImage {
     
-    ///Set globally on start up
-    public static var size: CGSize!
     
+    //MARK: - Render image for path
     
-    //MARK: - Draw individual image
-    
-    let image: UIImage?
-    let boundingBox: CGRect
+    public let path: CGPath
+    public let boundingBox: CGRect
+    public let image: UIImage?
     
     public init(from path: CGPath) {
+        self.path = path
         self.boundingBox = path.boundingBoxOfPath
         
-        UIGraphicsBeginImageContextWithOptions(CGPathImage.size, false, 1.0)
+        let boundingBoxWithOrigin = CGRect(x: 0, y: 0,
+                                           width: self.boundingBox.maxX + 20,
+                                           height: self.boundingBox.maxY + 20)
+        
+        UIGraphicsBeginImageContextWithOptions(boundingBoxWithOrigin.size, false, 1.0)
         guard let context = UIGraphicsGetCurrentContext() else {
             self.image = nil
             return
@@ -45,6 +48,8 @@ public struct CGPathImage {
     }
     
     
+    //MARK: - Calculate Intersections
+    
     public func intersects(path: CGPathImage) -> Bool {
         return self.intersectionPoints(with: path).count > 0
     }
@@ -52,35 +57,32 @@ public struct CGPathImage {
     
     public func intersectionPoints(with other: CGPathImage) -> [CGPoint] {
         
+        guard let image1 = self.image, let image2 = other.image else { return [] }
+        
         //fetch raw pixel data
-        guard let (width1, pixels1) = self.image?.pixelData else { return [] }
-        guard let (width2, pixels2) = other.image?.pixelData else { return [] }
+        let combined = image1.combined(with: image2)
+        guard let (widthCombined, pixelsCombined) = combined.pixelData else { return [] }
         
         var intersectionPixels = [CGPoint]()
         
         let rect = self.boundingBox.intersection(other.boundingBox)
+        if rect.isEmpty { return [] }
         
         //iterate over intersection of bounding boxes
-        for x in Int(rect.origin.x) ... Int(rect.origin.x + rect.size.width) {
-            for y in Int(rect.origin.y) ..< Int(rect.origin.y + rect.size.height) {
+        for x in Int(rect.minX) ... Int(rect.maxX) {
+            for y in Int(rect.minY) ... Int(rect.maxY) {
                 
-                let alpha1 = pixels1.alphaAt(x: CGFloat(x), y: CGFloat(y), imageWidth: width1)
-                let alpha2 = pixels2.alphaAt(x: CGFloat(x), y: CGFloat(y), imageWidth: width2)
+                let alphaCombined = pixelsCombined.alphaAt(x: x, y: y, imageWidth: widthCombined)
                 
-                //if intersection
-                if alpha1 > 0.05 && alpha2 > 0.05 {
+                //intersection if significantly darker than 0.5
+                if alphaCombined > 0.6 {
                     intersectionPixels.append(CGPoint(x: x, y: y))
                 }
             }
         }
         
+        if intersectionPixels.count <= 1 { return intersectionPixels }
         return intersectionPixels.coalescePoints()
     }
     
 }
-
-
-
-
-
-

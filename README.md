@@ -8,16 +8,9 @@ Add `github "calda/CGPathIntersection"` to your Cartfile and run `carthage updat
 
 ##Usage
 
-`import CGPathIntersection`
-
-CGPathIntersection uses a global CGSize to be more efficient when performing many calculations. You must include the following line in your project setup:
-
 ```swift
-CGPathImage.size = CGSize(...)
-```
+import CGPathIntersection
 
-Once configured, you can perform a quick calculation:
-```swift
 let path1 = CGPath(...)
 let path2 = CGPath(...)
         
@@ -30,6 +23,6 @@ If performing many calculations, you can increase performance by creating a `CGP
 let pathImage = CGPathImage(from: CGPath(...))
 let otherPathImages: [CGPathImage] = [...]
 
-let intersectsAny = otherPathImages.filter{ path.intersects(path: $0) }.count > 0
+let intersectingPaths = otherPathImages.filter{ path.intersects(path: $0) }.map{ $0.path }
 
 ```

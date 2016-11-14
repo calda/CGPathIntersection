@@ -7,7 +7,7 @@
 //
 
 import CoreGraphics
-
+import Foundation
 
 protocol Point {
     var x: CGFloat { get set }
@@ -30,15 +30,22 @@ extension Array where Element : Point {
                 continue
             }
             
+            var addedToGroup = false
+            
+            //search for a nearby group to join
             for i in 0 ..< groups.count {
-                //if all lines are two pixels wide, 6.0 is plenty for an individual cluster
-                let maximumDistance: CGFloat = 6.0
-                let distance = groups[i].first?.distance(to: point)
+                let distances = groups[i].map{ $0.distance(to: point) }
+                let miniumDistanceToGroup = distances.sorted().first
                 
-                if let distanceToGroup = distance, distanceToGroup < maximumDistance {
+                if let minimumDistance = miniumDistanceToGroup, minimumDistance < 2.0 {
                     groups[i].append(point)
-                    continue
+                    addedToGroup = true
+                    break
                 }
+            }
+            
+            if !addedToGroup {
+                groups.append([point])
             }
         }
         
@@ -47,8 +54,8 @@ extension Array where Element : Point {
             let xSum = group.reduce(0) { $0 + $1.x }
             let ySum = group.reduce(0) { $0 + $1.y }
             
-            return CGPoint(x: Int(xSum / CGFloat(group.count)),
-                           y: Int(ySum / CGFloat(group.count)))
+            return CGPoint(x: Int(round(xSum / CGFloat(group.count))),
+                           y: Int(round(ySum / CGFloat(group.count))))
         }
     }
     
