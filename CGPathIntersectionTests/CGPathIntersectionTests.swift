@@ -9,19 +9,20 @@
 import XCTest
 import CGPathIntersection
 
+//lines and circls with intersection positions verified by Wolfram Alpha
 class CGPathIntersectionTests: XCTestCase {
     
-    func testNoIntersectionFromParallelDiagonalLines() {
-        let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 170, y: 120))
-        let path2 = CGPath.line(from: CGPoint(x: 10, y: 10), to: CGPoint(x: 120, y: 120))
+    func testWithLinesWhereBoundingBoxesDontIntersect() {
+        let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 60, y: 100))
+        let path2 = CGPath.line(from: CGPoint(x: 130, y: 10), to: CGPoint(x: 140, y: 120))
         
         XCTAssertFalse(path1.intersects(path: path2))
         XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
     }
     
-    func testWithLinesWhereBoundingBoxesDontIntersect() {
-        let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 60, y: 100))
-        let path2 = CGPath.line(from: CGPoint(x: 130, y: 10), to: CGPoint(x: 140, y: 120))
+    func testNoIntersectionFromParallelDiagonalLines() {
+        let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 170, y: 120))
+        let path2 = CGPath.line(from: CGPoint(x: 10, y: 10), to: CGPoint(x: 120, y: 120))
         
         XCTAssertFalse(path1.intersects(path: path2))
         XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
@@ -81,8 +82,24 @@ class CGPathIntersectionTests: XCTestCase {
         XCTAssertEqualWithAccuracy(intersectionPoint2.y, 128.0, accuracy: 1.0)
     }
     
+    func testRealLifeExample() {
+        let path1 = CGPath.line(from: CGPoint(x: 403, y: 1167), to: CGPoint(x: 324, y: 462))
+        let path2 = CGPath.line(from: CGPoint(x: 101, y: 835), to: CGPoint(x: 649, y: 659))
+        
+        XCTAssertTrue(path1.intersects(path: path2))
+        
+        let intersectionPoints = path1.intersectionPoints(with: path2)
+        XCTAssertEqual(intersectionPoints.count, 1)
+        
+        let intersectionPoint = intersectionPoints.first!
+        XCTAssertEqualWithAccuracy(intersectionPoint.x, 357.0, accuracy: 1.0)
+        XCTAssertEqualWithAccuracy(intersectionPoint.y, 753.0, accuracy: 1.0)
+    }
+    
 }
 
+
+//MARK: - Convenience Helpers
 
 extension CGPath {
     

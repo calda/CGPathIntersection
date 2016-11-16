@@ -37,7 +37,7 @@ extension Array where Element : Point {
                 let distances = groups[i].map{ $0.distance(to: point) }
                 let miniumDistanceToGroup = distances.sorted().first
                 
-                if let minimumDistance = miniumDistanceToGroup, minimumDistance < 2.0 {
+                if let minimumDistance = miniumDistanceToGroup, minimumDistance < 6.0 {
                     groups[i].append(point)
                     addedToGroup = true
                     break

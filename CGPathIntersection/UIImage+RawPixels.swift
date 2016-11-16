@@ -10,40 +10,35 @@ import Foundation
 import CoreGraphics
 import UIKit
 
-public typealias PixelData = (width: CGFloat, pixels: UnsafePointer<UInt8>)
+typealias RawImage = (options: ImageOptions, pixels: UnsafePointer<UInt8>)
+typealias ImageOptions = (size: CGSize, bytesPerRow: Int, bitsPerComponent: Int)
 
-public extension UIImage {
+extension UIImage {
     
-    var pixelData: PixelData? {
-        guard let pixelData = self.cgImage?.dataProvider?.data else { return nil }
+    var rawImage: RawImage? {
+        guard let cgImage = self.cgImage else { return nil }
+        guard let pixelData = cgImage.dataProvider?.data else { return nil }
         guard let pixels = CFDataGetBytePtr(pixelData) else { return nil }
-        return (self.size.width, pixels)
-    }
-    
-    public func combined(with other: UIImage) -> UIImage {
-        let size = CGSize(width: max(self.size.width, other.size.width),
-                          height: max(self.size.height, other.size.height))
         
-        UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
-        self.draw(at: .zero)
-        other.draw(at: .zero)
-        
-        return UIGraphicsGetImageFromCurrentImageContext()!
+        return ((self.size, cgImage.bytesPerRow, cgImage.bitsPerComponent), pixels)
     }
     
 }
 
-//extension PixelData
 extension UnsafePointer {
     
-    func alphaAt(x: Int, y: Int, imageWidth: CGFloat) -> CGFloat {
-        let pixelPointer: Int = ((Int(imageWidth) * y) + x) * 4
+    func colorAt(x: Int, y: Int, options: ImageOptions) -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        //rows in memory are always powers of two, leaving empty bytes to pad as necessary.
+        let rowWidth = Int(options.bytesPerRow / 4)
+        let pixelPointer: Int = ((rowWidth * y) + x) * 4
         
         //data[pixelInfo] is a pointer to the first in a series of four UInt8s (r, g, b, a)
-        let pointedValue = (self[pixelPointer + 3] as? UInt8) ?? 0
-        let colorAlpha = CGFloat(pointedValue) / CGFloat(255.0)
+        func byte(_ offset: Int) -> CGFloat {
+            return CGFloat(self[pixelPointer + offset] as? UInt8 ?? 0) / 255.0
+        }
         
-        return colorAlpha
+        //buffer in BGRA format
+        return (red: byte(2), green: byte(1), blue: byte(0), alpha: byte(3))
     }
     
 }

@@ -22,6 +22,7 @@ public struct CGPathImage {
         self.path = path
         self.boundingBox = path.boundingBoxOfPath
         
+        //create image that contains the origin & the path's entire bounding box
         let boundingBoxWithOrigin = CGRect(x: 0, y: 0,
                                            width: self.boundingBox.maxX + 20,
                                            height: self.boundingBox.maxY + 20)
@@ -56,26 +57,26 @@ public struct CGPathImage {
     
     
     public func intersectionPoints(with other: CGPathImage) -> [CGPoint] {
-        
         guard let image1 = self.image, let image2 = other.image else { return [] }
         
         //fetch raw pixel data
-        let combined = image1.combined(with: image2)
-        guard let (widthCombined, pixelsCombined) = combined.pixelData else { return [] }
+        guard let image1Raw = image1.rawImage else { return [] }
+        guard let image2Raw = image2.rawImage else { return [] }
         
         var intersectionPixels = [CGPoint]()
         
-        let rect = self.boundingBox.intersection(other.boundingBox)
-        if rect.isEmpty { return [] }
+        let intersectionRect = self.boundingBox.intersection(other.boundingBox)
+        if intersectionRect.isEmpty { return [] }
         
         //iterate over intersection of bounding boxes
-        for x in Int(rect.minX) ... Int(rect.maxX) {
-            for y in Int(rect.minY) ... Int(rect.maxY) {
+        for x in Int(intersectionRect.minX) ... Int(intersectionRect.maxX) {
+            for y in Int(intersectionRect.minY) ... Int(intersectionRect.maxY) {
                 
-                let alphaCombined = pixelsCombined.alphaAt(x: x, y: y, imageWidth: widthCombined)
+                let color1 = image1Raw.pixels.colorAt(x: x, y: y, options: image1Raw.options)
+                let color2 = image2Raw.pixels.colorAt(x: x, y: y, options: image2Raw.options)
                 
                 //intersection if significantly darker than 0.5
-                if alphaCombined > 0.6 {
+                if color1.alpha > 0.05 && color2.alpha > 0.05 {
                     intersectionPixels.append(CGPoint(x: x, y: y))
                 }
             }

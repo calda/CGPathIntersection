@@ -173,6 +173,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2EFEF6741DD8D48800EA383E;
 			productRefGroup = 2EFEF67F1DD8D48800EA383E /* Products */;
@@ -418,6 +419,7 @@
 				2EFEF6941DD8D48800EA383E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EFEF6951DD8D48800EA383E /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +428,7 @@
 				2EFEF6971DD8D48800EA383E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

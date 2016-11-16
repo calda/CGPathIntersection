@@ -20,6 +20,8 @@ path1.intersectionPoints(with: path2) //returns an array of points
 
 If performing many calculations, you can increase performance by creating a `CGPathImage`. Any calculations performed on a pre-existing `CGPathImage` will run faster than the same calculation performed on a raw `CGPath`.
 ```swift
+import CGPathIntersection
+
 let pathImage = CGPathImage(from: CGPath(...))
 let otherPathImages: [CGPathImage] = [...]
 
