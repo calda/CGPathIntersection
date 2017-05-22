@@ -1,12 +1,12 @@
 # CGPathIntersection
 A CoreGraphics library to identify points where two CGPaths intersect.
 
-##Installation
+## Installation
 You can use `CGPathIntersection` in your own projects through [Carthage](https://github.com/Carthage/Carthage).
 
 Add `github "calda/CGPathIntersection"` to your Cartfile and run `carthage update`.
 
-##Usage
+## Usage
 
 ```swift
 import CGPathIntersection
