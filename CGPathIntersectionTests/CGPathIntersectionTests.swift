@@ -38,8 +38,8 @@ class CGPathIntersectionTests: XCTestCase {
         XCTAssertEqual(intersectionPoints.count, 1)
         
         let intersectionPoint = intersectionPoints.first!
-        XCTAssertEqualWithAccuracy(intersectionPoint.x, 100.0, accuracy: 1.0)
-        XCTAssertEqualWithAccuracy(intersectionPoint.y, 100.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.x, 100.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.y, 100.0, accuracy: 1.0)
     }
     
     func testOneIntersectionFromArbitraryLines() {
@@ -52,8 +52,8 @@ class CGPathIntersectionTests: XCTestCase {
         XCTAssertEqual(intersectionPoints.count, 1)
         
         let intersectionPoint = intersectionPoints.first!
-        XCTAssertEqualWithAccuracy(intersectionPoint.x, 76.0, accuracy: 1.0)
-        XCTAssertEqualWithAccuracy(intersectionPoint.y, 104.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.x, 76.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.y, 104.0, accuracy: 1.0)
     }
     
     func testZeroIntersectionFromCircleAndLine() {
@@ -74,12 +74,12 @@ class CGPathIntersectionTests: XCTestCase {
         XCTAssertEqual(intersectionPoints.count, 2)
         
         let intersectionPoint1 = intersectionPoints[0]
-        XCTAssertEqualWithAccuracy(intersectionPoint1.x, 72.0, accuracy: 1.0)
-        XCTAssertEqualWithAccuracy(intersectionPoint1.y, 72.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint1.x, 72.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint1.y, 72.0, accuracy: 1.0)
         
         let intersectionPoint2 = intersectionPoints[1]
-        XCTAssertEqualWithAccuracy(intersectionPoint2.x, 128.0, accuracy: 1.0)
-        XCTAssertEqualWithAccuracy(intersectionPoint2.y, 128.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint2.x, 128.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint2.y, 128.0, accuracy: 1.0)
     }
     
     func testRealLifeExample() {
@@ -92,8 +92,8 @@ class CGPathIntersectionTests: XCTestCase {
         XCTAssertEqual(intersectionPoints.count, 1)
         
         let intersectionPoint = intersectionPoints.first!
-        XCTAssertEqualWithAccuracy(intersectionPoint.x, 357.0, accuracy: 1.0)
-        XCTAssertEqualWithAccuracy(intersectionPoint.y, 753.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.x, 357.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.y, 753.0, accuracy: 1.0)
     }
     
 }
@@ -113,7 +113,7 @@ extension CGPath {
     }
     
     static func circle(at center: CGPoint, withRadius radius: CGFloat) -> CGPath {
-        let bezierPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * CGFloat(M_PI), clockwise: true)
+        let bezierPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
         return bezierPath.cgPath
     }
     
