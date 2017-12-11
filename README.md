@@ -5,9 +5,11 @@
 Surprisingly, this is not provided out-of-the-box by `CoreGraphics`. Intersections can be calculated analtyically for simple geometric shapes (especially straight lines), but that method becomes rather challenging when considering a `CGPath` can be arbitrarily complex. `CGPathIntersection` solves this problem by rendering each path into an image and then finding the exact pixels where they intersect.
 
 ## Installation
-You can use `CGPathIntersection` in your own projects through [Carthage](https://github.com/Carthage/Carthage).
+#### [Carthage](https://github.com/Carthage/Carthage)
+Add `github "calda/CGPathIntersection"` to your Cartfile
 
-Add `github "calda/CGPathIntersection"` to your Cartfile and run `carthage update`.
+#### [CocoaPods](https://github.com/cocoapods/cocoapods)
+Add `pod 'CGPathIntersection'` to your Podfile
 
 ## Usage
 
