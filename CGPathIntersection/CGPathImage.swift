@@ -22,12 +22,7 @@ public struct CGPathImage {
         self.path = path
         self.boundingBox = path.boundingBoxOfPath
         
-        //create image that contains the origin & the path's entire bounding box
-        let boundingBoxWithOrigin = CGRect(x: 0, y: 0,
-                                           width: self.boundingBox.maxX + 20,
-                                           height: self.boundingBox.maxY + 20)
-        
-        UIGraphicsBeginImageContextWithOptions(boundingBoxWithOrigin.size, false, 1.0)
+        UIGraphicsBeginImageContextWithOptions(boundingBox.size, false, 1.0)
         guard let context = UIGraphicsGetCurrentContext() else {
             self.image = nil
             return
@@ -40,7 +35,13 @@ public struct CGPathImage {
         context.setShouldAntialias(false)
         
         context.beginPath()
-        context.addPath(path)
+        
+        var translationToOrigin = CGAffineTransform(
+            translationX: -boundingBox.minX,
+            y: -boundingBox.minY)
+        
+        let pathAtOrigin = path.copy(using: &translationToOrigin) ?? path
+        context.addPath(pathAtOrigin)
         context.closePath()
         context.drawPath(using: .stroke)
         
@@ -57,11 +58,10 @@ public struct CGPathImage {
     
     
     public func intersectionPoints(with other: CGPathImage) -> [CGPoint] {
-        guard let image1 = self.image, let image2 = other.image else { return [] }
         
         //fetch raw pixel data
-        guard let image1Raw = image1.rawImage else { return [] }
-        guard let image2Raw = image2.rawImage else { return [] }
+        guard let image1Raw = self.rawImage else { return [] }
+        guard let image2Raw = other.rawImage else { return [] }
         
         var intersectionPixels = [CGPoint]()
         
@@ -69,8 +69,8 @@ public struct CGPathImage {
         if intersectionRect.isEmpty { return [] }
         
         //iterate over intersection of bounding boxes
-        for x in Int(intersectionRect.minX) ... Int(intersectionRect.maxX) {
-            for y in Int(intersectionRect.minY) ... Int(intersectionRect.maxY) {
+        for x in Int(intersectionRect.minX) ... Int(intersectionRect.maxX - 1) {
+            for y in Int(intersectionRect.minY) ... Int(intersectionRect.maxY - 1) {
                 
                 let color1 = image1Raw.pixels.colorAt(x: x, y: y, options: image1Raw.options)
                 let color2 = image2Raw.pixels.colorAt(x: x, y: y, options: image2Raw.options)
@@ -84,6 +84,52 @@ public struct CGPathImage {
         
         if intersectionPixels.count <= 1 { return intersectionPixels }
         return intersectionPixels.coalescePoints()
+    }
+    
+    
+    // MARK: - Debugging Helpers
+    
+    func intersectionsImage(with other: CGPathImage) -> UIImage {
+        let totalBoundingBox = self.boundingBox.union(other.boundingBox)
+        
+        UIGraphicsBeginImageContextWithOptions(totalBoundingBox.size, false, 1.0)
+        defer { UIGraphicsEndImageContext() }
+        
+        guard let context = UIGraphicsGetCurrentContext(),
+            let image1 = self.image,
+            let image2 = other.image else
+        {
+            fatalError()
+        }
+        
+        context.setAllowsAntialiasing(false)
+        context.setShouldAntialias(false)
+        
+        func rectInImage(from rect: CGRect) -> CGRect {
+            return CGRect(
+                origin: CGPoint(
+                    x: rect.origin.x - totalBoundingBox.minX,
+                    y: rect.origin.y - totalBoundingBox.minY),
+                size: rect.size)
+        }
+        
+        image1.draw(at: rectInImage(from: self.boundingBox).origin)
+        image2.draw(at: rectInImage(from: other.boundingBox).origin)
+        
+        context.setFillColor(UIColor.red.cgColor)
+        
+        for intersection in self.intersectionPoints(with: other) {
+            context.beginPath()
+            context.addEllipse(in:
+                rectInImage(
+                    from: CGRect(origin: intersection, size: .zero)
+                    .insetBy(dx: -20, dy: -20)))
+            
+            context.closePath()
+            context.drawPath(using: .fill)
+        }
+        
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
     
 }

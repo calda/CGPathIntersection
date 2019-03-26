@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import CGPathIntersection
+@testable import CGPathIntersection
 
 //lines and circls with intersection positions verified by Wolfram Alpha
 class CGPathIntersectionTests: XCTestCase {
@@ -37,7 +37,7 @@ class CGPathIntersectionTests: XCTestCase {
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
         
-        let intersectionPoint = intersectionPoints.first!
+        let intersectionPoint = intersectionPoints.first ?? .zero
         XCTAssertEqual(intersectionPoint.x, 100.0, accuracy: 1.0)
         XCTAssertEqual(intersectionPoint.y, 100.0, accuracy: 1.0)
     }
@@ -51,7 +51,7 @@ class CGPathIntersectionTests: XCTestCase {
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
         
-        let intersectionPoint = intersectionPoints.first!
+        let intersectionPoint = intersectionPoints.first ?? .zero
         XCTAssertEqual(intersectionPoint.x, 76.0, accuracy: 1.0)
         XCTAssertEqual(intersectionPoint.y, 104.0, accuracy: 1.0)
     }
@@ -91,11 +91,67 @@ class CGPathIntersectionTests: XCTestCase {
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
         
-        let intersectionPoint = intersectionPoints.first!
+        let intersectionPoint = intersectionPoints.first ?? .zero
         XCTAssertEqual(intersectionPoint.x, 357.0, accuracy: 1.0)
         XCTAssertEqual(intersectionPoint.y, 753.0, accuracy: 1.0)
     }
     
+    func testNegativeOrigin1() {
+        let path1 = CGPath.line(from: .zero, to: CGPoint(x: 1000, y: 1000))
+        let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
+        
+        XCTAssertTrue(path1.intersects(path: path2))
+        
+        let intersectionPoints = path1.intersectionPoints(with: path2)
+        XCTAssertEqual(intersectionPoints.count, 1)
+        
+        let intersectionPoint = intersectionPoints.first ?? .zero
+        XCTAssertEqual(intersectionPoint.x, 1000, accuracy: 2.0)
+        XCTAssertEqual(intersectionPoint.y, 1000, accuracy: 2.0)
+    }
+    
+    func testNegativeOrigin2() {
+        let path1 = CGPath.line(from: .zero, to: CGPoint(x: -1000, y: 1000))
+        let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
+        
+        XCTAssertTrue(path1.intersects(path: path2))
+        
+        let intersectionPoints = path1.intersectionPoints(with: path2)
+        XCTAssertEqual(intersectionPoints.count, 1)
+        
+        let intersectionPoint = intersectionPoints.first ?? .zero
+        XCTAssertEqual(intersectionPoint.x, -1000, accuracy: 2.0)
+        XCTAssertEqual(intersectionPoint.y, 1000, accuracy: 2.0)
+    }
+    
+    func testNegativeOrigin3() {
+        let path1 = CGPath.line(from: .zero, to: CGPoint(x: 1000, y: -1000))
+        let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
+        
+        XCTAssertTrue(path1.intersects(path: path2))
+        
+        let intersectionPoints = path1.intersectionPoints(with: path2)
+        XCTAssertEqual(intersectionPoints.count, 1)
+        
+        let intersectionPoint = intersectionPoints.first ?? .zero
+        XCTAssertEqual(intersectionPoint.x, 1000, accuracy: 2.0)
+        XCTAssertEqual(intersectionPoint.y, -1000, accuracy: 2.0)
+    }
+    
+    func testNegativeOrigin4() {
+        let path1 = CGPath.line(from: .zero, to: CGPoint(x: -1000, y: -1000))
+        let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
+        
+        XCTAssertTrue(path1.intersects(path: path2))
+        
+        let intersectionPoints = path1.intersectionPoints(with: path2)
+        XCTAssertEqual(intersectionPoints.count, 1)
+        
+        let intersectionPoint = intersectionPoints.first ?? .zero
+        XCTAssertEqual(intersectionPoint.x, -1000, accuracy: 2.0)
+        XCTAssertEqual(intersectionPoint.y, -1000, accuracy: 2.0)
+    }
+
 }
 
 
