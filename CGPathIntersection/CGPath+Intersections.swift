@@ -10,7 +10,7 @@ import CoreGraphics
 
 extension CGPath {
     
-    public func intersects(path: CGPath) -> Bool {
+    public func intersects(_ path: CGPath) -> Bool {
         return self.intersectionPoints(with: path).count > 0
     }
     

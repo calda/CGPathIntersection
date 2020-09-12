@@ -16,7 +16,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 60, y: 100))
         let path2 = CGPath.line(from: CGPoint(x: 130, y: 10), to: CGPoint(x: 140, y: 120))
         
-        XCTAssertFalse(path1.intersects(path: path2))
+        XCTAssertFalse(path1.intersects(path2))
         XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
     }
     
@@ -24,7 +24,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 50, y: 10), to: CGPoint(x: 170, y: 120))
         let path2 = CGPath.line(from: CGPoint(x: 10, y: 10), to: CGPoint(x: 120, y: 120))
         
-        XCTAssertFalse(path1.intersects(path: path2))
+        XCTAssertFalse(path1.intersects(path2))
         XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
     }
     
@@ -32,7 +32,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
         let path2 = CGPath.line(from: CGPoint(x: 180, y: 20), to: CGPoint(x: 20, y: 180))
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -46,7 +46,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 123.2, y: 145.5), to: CGPoint(x: 32.87, y: 67.1))
         let path2 = CGPath.line(from: CGPoint(x: 104.7, y: 153.3), to: CGPoint(x: 20.0, y: 10.0))
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -60,7 +60,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 180, y: 20), to: CGPoint(x: 180, y: 180))
         let path2 = CGPath.circle(at: CGPoint(x: 100, y: 20), withRadius: 20.0)
         
-        XCTAssertFalse(path1.intersects(path: path2))
+        XCTAssertFalse(path1.intersects(path2))
         XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
     }
     
@@ -68,7 +68,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
         let path2 = CGPath.circle(at: CGPoint(x: 100, y: 100), withRadius: 40.0)
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 2)
@@ -86,7 +86,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: CGPoint(x: 403, y: 1167), to: CGPoint(x: 324, y: 462))
         let path2 = CGPath.line(from: CGPoint(x: 101, y: 835), to: CGPoint(x: 649, y: 659))
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -100,7 +100,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: .zero, to: CGPoint(x: 1000, y: 1000))
         let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -114,7 +114,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: .zero, to: CGPoint(x: -1000, y: 1000))
         let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -128,7 +128,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: .zero, to: CGPoint(x: 1000, y: -1000))
         let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -142,7 +142,7 @@ class CGPathIntersectionTests: XCTestCase {
         let path1 = CGPath.line(from: .zero, to: CGPoint(x: -1000, y: -1000))
         let path2 = CGPath(rect: CGRect(x: -1000, y: -1000, width: 2000, height: 2000), transform: nil)
         
-        XCTAssertTrue(path1.intersects(path: path2))
+        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -397,7 +397,7 @@ class CGPathIntersectionTests: XCTestCase {
         path1.addLine(to: CGPoint(x: 828.446, y: 287.883))
         path1.addLine(to: CGPoint(x: 837.393, y: 271.909))
         
-        XCTAssertFalse(path0.intersects(path: path1))
+        XCTAssertFalse(path0.intersects(path1))
     }
 
 }
