@@ -69,8 +69,8 @@ public struct CGPathImage {
         if intersectionRect.isEmpty { return [] }
         
         //iterate over intersection of bounding boxes
-        for x in Int(intersectionRect.minX) ... Int(intersectionRect.maxX - 1) {
-            for y in Int(intersectionRect.minY) ... Int(intersectionRect.maxY - 1) {
+        for x in Int(intersectionRect.minX) ..< Int(intersectionRect.maxX) {
+            for y in Int(intersectionRect.minY) ..< Int(intersectionRect.maxY) {
                 
                 let color1 = image1Raw.pixels.colorAt(x: x, y: y, options: image1Raw.options)
                 let color2 = image2Raw.pixels.colorAt(x: x, y: y, options: image2Raw.options)
