@@ -52,7 +52,7 @@ public struct CGPathImage {
     
     //MARK: - Calculate Intersections
     
-    public func intersects(path: CGPathImage) -> Bool {
+    public func intersects(_ path: CGPathImage) -> Bool {
         return self.intersectionPoints(with: path).count > 0
     }
     

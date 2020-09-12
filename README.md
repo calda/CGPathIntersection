@@ -19,7 +19,7 @@ import CGPathIntersection
 let path1 = CGPath(...)
 let path2 = CGPath(...)
         
-path1.intersects(path: path2) //returns a boolean
+path1.intersects(path2) //returns a boolean
 path1.intersectionPoints(with: path2) //returns an array of points
 ```
 
@@ -31,7 +31,7 @@ import CGPathIntersection
 let pathImage = CGPathImage(from: CGPath(...))
 let otherPathImages: [CGPathImage] = [...]
 
-let intersectingPaths = otherPathImages.filter{ path.intersects(path: $0) }
+let intersectingPaths = otherPathImages.filter{ path.intersects($0) }
 ```
 
 ## Example
