@@ -22,7 +22,7 @@ extension CGPathImage {
         guard let pixels = CFDataGetBytePtr(pixelData) else { return nil }
         
         let boundingBox = CGRect(
-            origin: CGPoint(x: round(self.boundingBox.origin.x), y: round(self.boundingBox.origin.y)),
+            origin: CGPoint(x: Int(self.boundingBox.origin.x), y: Int(self.boundingBox.origin.y)),
             size: image.size)
         
         return ((boundingBox, cgImage.bytesPerRow, cgImage.bitsPerComponent), pixels)
