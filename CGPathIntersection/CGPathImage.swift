@@ -42,15 +42,12 @@ public struct CGPathImage {
         context.setAllowsAntialiasing(false)
         context.setShouldAntialias(false)
         
-        context.beginPath()
-        
         var translationToOrigin = CGAffineTransform(
             translationX: -boundingBox.minX,
             y: -boundingBox.minY)
         
         let pathAtOrigin = path.copy(using: &translationToOrigin) ?? path
         context.addPath(pathAtOrigin)
-        context.closePath()
         context.drawPath(using: .stroke)
         
         self.image = UIGraphicsGetImageFromCurrentImageContext()
