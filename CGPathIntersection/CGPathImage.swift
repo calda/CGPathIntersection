@@ -20,7 +20,15 @@ public struct CGPathImage {
     
     public init(from path: CGPath) {
         self.path = path
-        self.boundingBox = path.boundingBoxOfPath
+    
+        // Perfectly-straight lines have a width or height of zero,
+        // but to create a useful image we have to have at least one row/column of pixels.
+        let absoluteBoundingBox = path.boundingBoxOfPath
+        self.boundingBox = CGRect(
+          x: absoluteBoundingBox.origin.x,
+          y: absoluteBoundingBox.origin.y,
+          width: max(absoluteBoundingBox.size.width, 1),
+          height: max(absoluteBoundingBox.size.height, 1))
         
         UIGraphicsBeginImageContextWithOptions(boundingBox.size, false, 1.0)
         guard let context = UIGraphicsGetCurrentContext() else {

@@ -28,7 +28,7 @@ class CGPathIntersectionTests: XCTestCase {
         XCTAssertEqual(path1.intersectionPoints(with: path2).count, 0)
     }
     
-    func testOneIntersectionFromPerpendicularLines() {
+    func testOneIntersectionFromPerpendicularDiagonalLines() {
         let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
         let path2 = CGPath.line(from: CGPoint(x: 180, y: 20), to: CGPoint(x: 20, y: 180))
         
@@ -40,6 +40,20 @@ class CGPathIntersectionTests: XCTestCase {
         let intersectionPoint = intersectionPoints.first ?? .zero
         XCTAssertEqual(intersectionPoint.x, 100.0, accuracy: 1.0)
         XCTAssertEqual(intersectionPoint.y, 100.0, accuracy: 1.0)
+    }
+  
+    func testOneIntersectionFromPerpendicularStraightLines() {
+        let path1 = CGPath.line(from: CGPoint(x: 50, y: 0), to: CGPoint(x: 50, y: 100))
+        let path2 = CGPath.line(from: CGPoint(x: 0, y: 50), to: CGPoint(x: 100, y: 50))
+      
+        XCTAssertTrue(path1.intersects(path2))
+      
+        let intersectionPoints = path1.intersectionPoints(with: path2)
+        XCTAssertEqual(intersectionPoints.count, 1)
+      
+        let intersectionPoint = intersectionPoints.first ?? .zero
+        XCTAssertEqual(intersectionPoint.x, 50.0, accuracy: 1.0)
+        XCTAssertEqual(intersectionPoint.y, 50.0, accuracy: 1.0)
     }
     
     func testOneIntersectionFromArbitraryLines() {
