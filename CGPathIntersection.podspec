@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.platform              = :ios, "10.0"
   s.name                  = "CGPathIntersection"
-  s.version               = "3.0.1"
+  s.version               = "3.0.2"
   s.summary               = "A CoreGraphics library that identifies points where two CGPaths intersect"
   s.homepage              = "https://github.com/calda/CGPathIntersection"
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
   s.author                = { "Cal Stephens" => "cal@calstephens.tech" }
-  s.source                = { :git => 'https://github.com/calda/CGPathIntersection.git', :tag => '3.0.1' }
+  s.source                = { :git => 'https://github.com/calda/CGPathIntersection.git', :tag => '3.0.2' }
   s.source_files          = 'CGPathIntersection/*.swift'
   s.exclude_files         = 'README.md', 'LICENSE.md', 'CGPathIntersection.podspec', 'images/*'
   s.requires_arc          = true
