@@ -1,5 +1,7 @@
 # CGPathIntersection
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fcalda%2FCGPathIntersection%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/calda/CGPathIntersection) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fcalda%2FCGPathIntersection%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/calda/CGPathIntersection)
+
 **CGPathIntersection** is a `CoreGraphics` library that identifies points where two `CGPath`s intersect.
 
 Surprisingly, this is not provided out-of-the-box by `CoreGraphics`. Intersections can be calculated analytically for simple geometric shapes (especially straight lines), but that method becomes rather challenging when considering a `CGPath` can be arbitrarily complex. `CGPathIntersection` solves this problem by rendering each path into an image and then finding the exact pixels where they intersect.
