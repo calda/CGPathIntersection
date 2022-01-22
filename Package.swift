@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "CGPathIntersection",
-    platforms: [.iOS(.v10)],
+    platforms: [.iOS(.v9)],
     products: [
         .library(
           name: "CGPathIntersection",
