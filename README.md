@@ -5,6 +5,16 @@
 Surprisingly, this is not provided out-of-the-box by `CoreGraphics`. Intersections can be calculated analytically for simple geometric shapes (especially straight lines), but that method becomes rather challenging when considering a `CGPath` can be arbitrarily complex. `CGPathIntersection` solves this problem by rendering each path into an image and then finding the exact pixels where they intersect.
 
 ## Installation
+#### [Swift Package Manager](https://www.swift.org/package-manager/)
+Add the following dependency to your package definition:
+
+```swift
+.package(
+  name: "CGPathIntersection",
+  url: "https://github.com/calda/CGPathIntersection.git",
+  from: "3.1")
+```
+
 #### [Carthage](https://github.com/Carthage/Carthage)
 Add `github "calda/CGPathIntersection"` to your Cartfile
 
