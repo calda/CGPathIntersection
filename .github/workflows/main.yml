@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-package:
+    name: "Build Package"
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode:
+        - '12.4' # Swift 5.3
+        - '12.5.1' # Swift 5.4
+        - '13.2' # Swift 5.5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+        with:
+          xcode: ${{ matrix.xcode }}
+      - name: Build Package
+        run: bundle exec rake build
+
+  test-package:
+    name: "Test Package"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - name: Test Package
+        run: bundle exec rake test
+
+  cocoapod:
+    name: "Lint CocoaPods podspec"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+        with:
+          install-mint: false
+      - name: Lint CocoaPod Podspec
+        run: bundle exec rake lint:podspec
