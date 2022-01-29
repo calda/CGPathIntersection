@@ -13,6 +13,8 @@ jobs:
     strategy:
       matrix:
         xcode:
+        - '11.3' # Swift 5.1
+        - '11.7' # Swift 5.2
         - '12.4' # Swift 5.3
         - '12.5.1' # Swift 5.4
         - '13.2' # Swift 5.5
@@ -22,16 +24,34 @@ jobs:
         with:
           xcode: ${{ matrix.xcode }}
       - name: Build Package
-        run: bundle exec rake build
+        run: bundle exec rake build:iOS
 
-  test-package:
-    name: "Test Package"
+  test-package-iOS:
+    name: "Test Package (iOS)"
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
       - name: Test Package
-        run: bundle exec rake test
+        run: bundle exec rake test:iOS
+        
+  test-package-iOS:
+    name: "Test Package (macOS)"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - name: Test Package
+        run: bundle exec rake test:macOS
+
+  test-package-iOS:
+    name: "Test Package (tvOS)"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - name: Test Package
+        run: bundle exec rake test:tvOS
 
   cocoapod:
     name: "Lint CocoaPods podspec"

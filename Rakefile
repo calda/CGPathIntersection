@@ -1,9 +1,25 @@
-task :build do
-  xcodebuild('build -scheme CGPathIntersection -destination generic/platform=iOS')
+namespace :build do
+  task :iOS do
+    xcodebuild('build -scheme CGPathIntersection-iOS -destination generic/platform=iOS')
+  end
+  task :macOS do
+    sh 'swift build'
+  end
+  task :tvOS do
+    xcodebuild('build -scheme CGPathIntersection-tvOS -destination generic/platform=tvOS')
+  end
 end
 
-task :test do
-  xcodebuild('test -scheme CGPathIntersection -destination "platform=iOS Simulator,name=iPhone 8"')
+namespace :test do
+  task :iOS do
+    xcodebuild('test -scheme CGPathIntersection-iOS -destination "platform=iOS Simulator,name=iPhone 12"')
+  end
+  task :macOS do
+    sh 'swift test'
+  end
+  task :tvOS do
+    xcodebuild('test -scheme CGPathIntersection-tvOS -destination "platform=tvOS Simulator,name=Apple TV"')
+  end
 end
 
 namespace :lint do

@@ -9,7 +9,7 @@
 import XCTest
 @testable import CGPathIntersection
 
-//lines and circls with intersection positions verified by Wolfram Alpha
+//lines and circles with intersection positions verified by Wolfram Alpha
 class CGPathIntersectionTests: XCTestCase {
     
     func testWithLinesWhereBoundingBoxesDontIntersect() {
@@ -45,7 +45,7 @@ class CGPathIntersectionTests: XCTestCase {
     func testOneIntersectionFromPerpendicularStraightLines() {
         let path1 = CGPath.line(from: CGPoint(x: 50, y: 0), to: CGPoint(x: 50, y: 100))
         let path2 = CGPath.line(from: CGPoint(x: 0, y: 50), to: CGPoint(x: 100, y: 50))
-      
+        
         XCTAssertTrue(path1.intersects(path2))
       
         let intersectionPoints = path1.intersectionPoints(with: path2)
@@ -59,8 +59,6 @@ class CGPathIntersectionTests: XCTestCase {
     func testOneIntersectionFromArbitraryLines() {
         let path1 = CGPath.line(from: CGPoint(x: 123.2, y: 145.5), to: CGPoint(x: 32.87, y: 67.1))
         let path2 = CGPath.line(from: CGPoint(x: 104.7, y: 153.3), to: CGPoint(x: 20.0, y: 10.0))
-        
-        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 1)
@@ -81,8 +79,6 @@ class CGPathIntersectionTests: XCTestCase {
     func testTwoIntersectionFromCircleAndLine() {
         let path1 = CGPath.line(from: CGPoint(x: 20, y: 20), to: CGPoint(x: 180, y: 180))
         let path2 = CGPath.circle(at: CGPoint(x: 100, y: 100), withRadius: 40.0)
-        
-        XCTAssertTrue(path1.intersects(path2))
         
         let intersectionPoints = path1.intersectionPoints(with: path2)
         XCTAssertEqual(intersectionPoints.count, 2)
@@ -422,17 +418,21 @@ class CGPathIntersectionTests: XCTestCase {
 extension CGPath {
     
     static func line(from start: CGPoint, to end: CGPoint) -> CGPath {
-        let bezierPath = UIBezierPath()
-        bezierPath.move(to: start)
-        bezierPath.addLine(to: end)
-        bezierPath.close()
-        
-        return bezierPath.cgPath
+        let path = CGMutablePath()
+        path.move(to: start)
+        path.addLine(to: end)
+        path.closeSubpath()
+        return path
     }
     
     static func circle(at center: CGPoint, withRadius radius: CGFloat) -> CGPath {
-        let bezierPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
-        return bezierPath.cgPath
+        CGPath(
+            ellipseIn: CGRect(
+                x: center.x - radius,
+                y: center.y - radius,
+                width: radius * 2,
+                height: radius * 2),
+            transform: nil)
     }
     
 }
