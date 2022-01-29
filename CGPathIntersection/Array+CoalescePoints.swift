@@ -9,18 +9,10 @@
 import CoreGraphics
 import Foundation
 
-protocol Point {
-    var x: CGFloat { get set }
-    var y: CGFloat { get set }
-}
-
-extension CGPoint : Point { }
-
-
-extension Array where Element : Point {
+extension Array where Element == CGPoint {
     
     func coalescePoints() -> [CGPoint] {
-        var groups = [[Element]]()
+        var groups = [[CGPoint]]()
         
         //build groups of nearby pixels
         for point in self {
@@ -61,9 +53,9 @@ extension Array where Element : Point {
     
 }
 
-extension Point {
+extension CGPoint {
     
-    func distance(to point: Point) -> CGFloat {
+    func distance(to point: CGPoint) -> CGFloat {
         return sqrt(pow(self.x - point.x, 2) + pow(self.y - point.y, 2))
     }
     

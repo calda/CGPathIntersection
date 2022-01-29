@@ -22,16 +22,34 @@ jobs:
         with:
           xcode: ${{ matrix.xcode }}
       - name: Build Package
-        run: bundle exec rake build
+        run: bundle exec rake build:iOS
 
-  test-package:
-    name: "Test Package"
+  test-package-iOS:
+    name: "Test Package (iOS)"
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
       - name: Test Package
-        run: bundle exec rake test
+        run: bundle exec rake test:iOS
+        
+  test-package-macOS:
+    name: "Test Package (macOS)"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - name: Test Package
+        run: bundle exec rake test:macOS
+
+  test-package-tvOS:
+    name: "Test Package (tvOS)"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/setup
+      - name: Test Package
+        run: bundle exec rake test:tvOS
 
   cocoapod:
     name: "Lint CocoaPods podspec"

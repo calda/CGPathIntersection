@@ -7,15 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E34FA44279C86FE00A735F9 /* CGPathImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */; };
+		2E34FA45279C86FE00A735F9 /* CGPath+Intersections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */; };
+		2E34FA46279C86FE00A735F9 /* CGPathImage+RawPixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69E1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift */; };
+		2E34FA47279C86FE00A735F9 /* Array+CoalescePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6A01DD8FFE400EA383E /* Array+CoalescePoints.swift */; };
+		2E34FA50279C874C00A735F9 /* CGPathIntersection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E34FA3D279C86F400A735F9 /* CGPathIntersection.framework */; };
+		2E34FA56279C875100A735F9 /* CGPathIntersectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF68C1DD8D48800EA383E /* CGPathIntersectionTests.swift */; };
+		2E34FA58279CC25000A735F9 /* PlatformImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34FA57279CC25000A735F9 /* PlatformImage.swift */; };
+		2E34FA59279CC39C00A735F9 /* PlatformImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34FA57279CC25000A735F9 /* PlatformImage.swift */; };
+		2EBDE01B27A5BCD3007A1031 /* CGPathIntersection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBDE01327A5BCD3007A1031 /* CGPathIntersection.framework */; };
+		2EBDE02827A5BCE0007A1031 /* CGPathIntersectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF68C1DD8D48800EA383E /* CGPathIntersectionTests.swift */; };
+		2EBDE02927A5BCE3007A1031 /* Array+CoalescePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6A01DD8FFE400EA383E /* Array+CoalescePoints.swift */; };
+		2EBDE02A27A5BCE3007A1031 /* PlatformImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34FA57279CC25000A735F9 /* PlatformImage.swift */; };
+		2EBDE02B27A5BCE3007A1031 /* CGPath+Intersections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */; };
+		2EBDE02C27A5BCE3007A1031 /* CGPathImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */; };
+		2EBDE02D27A5BCE3007A1031 /* CGPathImage+RawPixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69E1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift */; };
 		2EFEF6881DD8D48800EA383E /* CGPathIntersection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFEF67E1DD8D48800EA383E /* CGPathIntersection.framework */; };
 		2EFEF68D1DD8D48800EA383E /* CGPathIntersectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF68C1DD8D48800EA383E /* CGPathIntersectionTests.swift */; };
 		2EFEF6991DD8D5F000EA383E /* CGPathImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */; };
 		2EFEF69B1DD8E03200EA383E /* CGPath+Intersections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */; };
-		2EFEF69F1DD8F6BD00EA383E /* UIImage+RawPixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69E1DD8F6BD00EA383E /* UIImage+RawPixels.swift */; };
+		2EFEF69F1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF69E1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift */; };
 		2EFEF6A11DD8FFE400EA383E /* Array+CoalescePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF6A01DD8FFE400EA383E /* Array+CoalescePoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2E34FA51279C874C00A735F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EFEF6751DD8D48800EA383E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E34FA3C279C86F400A735F9;
+			remoteInfo = "CGPathIntersection-macOS";
+		};
+		2EBDE01C27A5BCD3007A1031 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EFEF6751DD8D48800EA383E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EBDE01227A5BCD3007A1031;
+			remoteInfo = "CGPathIntersection-tvOS";
+		};
 		2EFEF6891DD8D48800EA383E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2EFEF6751DD8D48800EA383E /* Project object */;
@@ -26,18 +55,53 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E34FA3D279C86F400A735F9 /* CGPathIntersection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CGPathIntersection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E34FA4C279C874C00A735F9 /* CGPathIntersectionTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CGPathIntersectionTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E34FA57279CC25000A735F9 /* PlatformImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformImage.swift; sourceTree = "<group>"; };
+		2EBDE01327A5BCD3007A1031 /* CGPathIntersection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CGPathIntersection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EBDE01A27A5BCD3007A1031 /* CGPathIntersection-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CGPathIntersection-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFEF67E1DD8D48800EA383E /* CGPathIntersection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CGPathIntersection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFEF6821DD8D48800EA383E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGPathIntersectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CGPathIntersectionTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFEF68C1DD8D48800EA383E /* CGPathIntersectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPathIntersectionTests.swift; sourceTree = "<group>"; };
 		2EFEF68E1DD8D48800EA383E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPathImage.swift; sourceTree = "<group>"; };
 		2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPath+Intersections.swift"; sourceTree = "<group>"; };
-		2EFEF69E1DD8F6BD00EA383E /* UIImage+RawPixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RawPixels.swift"; sourceTree = "<group>"; };
+		2EFEF69E1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPathImage+RawPixels.swift"; sourceTree = "<group>"; };
 		2EFEF6A01DD8FFE400EA383E /* Array+CoalescePoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+CoalescePoints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E34FA3A279C86F400A735F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E34FA49279C874C00A735F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E34FA50279C874C00A735F9 /* CGPathIntersection.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE01027A5BCD3007A1031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE01727A5BCD3007A1031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBDE01B27A5BCD3007A1031 /* CGPathIntersection.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EFEF67A1DD8D48800EA383E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,7 +133,11 @@
 			isa = PBXGroup;
 			children = (
 				2EFEF67E1DD8D48800EA383E /* CGPathIntersection.framework */,
-				2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests.xctest */,
+				2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests-iOS.xctest */,
+				2E34FA3D279C86F400A735F9 /* CGPathIntersection.framework */,
+				2E34FA4C279C874C00A735F9 /* CGPathIntersectionTests-macOS.xctest */,
+				2EBDE01327A5BCD3007A1031 /* CGPathIntersection.framework */,
+				2EBDE01A27A5BCD3007A1031 /* CGPathIntersection-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,8 +148,9 @@
 				2EFEF6821DD8D48800EA383E /* Info.plist */,
 				2EFEF6981DD8D5F000EA383E /* CGPathImage.swift */,
 				2EFEF69A1DD8E03200EA383E /* CGPath+Intersections.swift */,
-				2EFEF69E1DD8F6BD00EA383E /* UIImage+RawPixels.swift */,
+				2EFEF69E1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift */,
 				2EFEF6A01DD8FFE400EA383E /* Array+CoalescePoints.swift */,
+				2E34FA57279CC25000A735F9 /* PlatformImage.swift */,
 			);
 			path = CGPathIntersection;
 			sourceTree = "<group>";
@@ -98,6 +167,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2E34FA38279C86F400A735F9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE00E27A5BCD3007A1031 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EFEF67B1DD8D48800EA383E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +191,78 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2E34FA3C279C86F400A735F9 /* CGPathIntersection-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E34FA41279C86F400A735F9 /* Build configuration list for PBXNativeTarget "CGPathIntersection-macOS" */;
+			buildPhases = (
+				2E34FA38279C86F400A735F9 /* Headers */,
+				2E34FA39279C86F400A735F9 /* Sources */,
+				2E34FA3A279C86F400A735F9 /* Frameworks */,
+				2E34FA3B279C86F400A735F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CGPathIntersection-macOS";
+			productName = "CGPathIntersection-macOS";
+			productReference = 2E34FA3D279C86F400A735F9 /* CGPathIntersection.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2E34FA4B279C874C00A735F9 /* CGPathIntersectionTests-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E34FA53279C874C00A735F9 /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests-macOS" */;
+			buildPhases = (
+				2E34FA48279C874C00A735F9 /* Sources */,
+				2E34FA49279C874C00A735F9 /* Frameworks */,
+				2E34FA4A279C874C00A735F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E34FA52279C874C00A735F9 /* PBXTargetDependency */,
+			);
+			name = "CGPathIntersectionTests-macOS";
+			productName = "CGPathIntersectionTests-macOS";
+			productReference = 2E34FA4C279C874C00A735F9 /* CGPathIntersectionTests-macOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2EBDE01227A5BCD3007A1031 /* CGPathIntersection-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EBDE02627A5BCD3007A1031 /* Build configuration list for PBXNativeTarget "CGPathIntersection-tvOS" */;
+			buildPhases = (
+				2EBDE00E27A5BCD3007A1031 /* Headers */,
+				2EBDE00F27A5BCD3007A1031 /* Sources */,
+				2EBDE01027A5BCD3007A1031 /* Frameworks */,
+				2EBDE01127A5BCD3007A1031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CGPathIntersection-tvOS";
+			productName = "CGPathIntersection-tvOS";
+			productReference = 2EBDE01327A5BCD3007A1031 /* CGPathIntersection.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2EBDE01927A5BCD3007A1031 /* CGPathIntersection-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EBDE02727A5BCD3007A1031 /* Build configuration list for PBXNativeTarget "CGPathIntersection-tvOSTests" */;
+			buildPhases = (
+				2EBDE01627A5BCD3007A1031 /* Sources */,
+				2EBDE01727A5BCD3007A1031 /* Frameworks */,
+				2EBDE01827A5BCD3007A1031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EBDE01D27A5BCD3007A1031 /* PBXTargetDependency */,
+			);
+			name = "CGPathIntersection-tvOSTests";
+			productName = "CGPathIntersection-tvOSTests";
+			productReference = 2EBDE01A27A5BCD3007A1031 /* CGPathIntersection-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2EFEF67D1DD8D48800EA383E /* CGPathIntersection */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EFEF6921DD8D48800EA383E /* Build configuration list for PBXNativeTarget "CGPathIntersection" */;
@@ -126,9 +281,9 @@
 			productReference = 2EFEF67E1DD8D48800EA383E /* CGPathIntersection.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2EFEF6861DD8D48800EA383E /* CGPathIntersectionTests */ = {
+		2EFEF6861DD8D48800EA383E /* CGPathIntersectionTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EFEF6951DD8D48800EA383E /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests" */;
+			buildConfigurationList = 2EFEF6951DD8D48800EA383E /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests-iOS" */;
 			buildPhases = (
 				2EFEF6831DD8D48800EA383E /* Sources */,
 				2EFEF6841DD8D48800EA383E /* Frameworks */,
@@ -139,9 +294,9 @@
 			dependencies = (
 				2EFEF68A1DD8D48800EA383E /* PBXTargetDependency */,
 			);
-			name = CGPathIntersectionTests;
+			name = "CGPathIntersectionTests-iOS";
 			productName = CGPathIntersectionTests;
-			productReference = 2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests.xctest */;
+			productReference = 2EFEF6871DD8D48800EA383E /* CGPathIntersectionTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -150,10 +305,30 @@
 		2EFEF6751DD8D48800EA383E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Cal Stephens";
 				TargetAttributes = {
+					2E34FA3C279C86F400A735F9 = {
+						CreatedOnToolsVersion = 13.0;
+						DevelopmentTeam = FZ89A5SZ7C;
+						ProvisioningStyle = Automatic;
+					};
+					2E34FA4B279C874C00A735F9 = {
+						CreatedOnToolsVersion = 13.0;
+						DevelopmentTeam = FZ89A5SZ7C;
+						ProvisioningStyle = Automatic;
+					};
+					2EBDE01227A5BCD3007A1031 = {
+						CreatedOnToolsVersion = 13.0;
+						DevelopmentTeam = FZ89A5SZ7C;
+						ProvisioningStyle = Automatic;
+					};
+					2EBDE01927A5BCD3007A1031 = {
+						CreatedOnToolsVersion = 13.0;
+						DevelopmentTeam = FZ89A5SZ7C;
+						ProvisioningStyle = Automatic;
+					};
 					2EFEF67D1DD8D48800EA383E = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = FZ89A5SZ7C;
@@ -182,12 +357,44 @@
 			projectRoot = "";
 			targets = (
 				2EFEF67D1DD8D48800EA383E /* CGPathIntersection */,
-				2EFEF6861DD8D48800EA383E /* CGPathIntersectionTests */,
+				2EFEF6861DD8D48800EA383E /* CGPathIntersectionTests-iOS */,
+				2E34FA3C279C86F400A735F9 /* CGPathIntersection-macOS */,
+				2E34FA4B279C874C00A735F9 /* CGPathIntersectionTests-macOS */,
+				2EBDE01227A5BCD3007A1031 /* CGPathIntersection-tvOS */,
+				2EBDE01927A5BCD3007A1031 /* CGPathIntersection-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E34FA3B279C86F400A735F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E34FA4A279C874C00A735F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE01127A5BCD3007A1031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE01827A5BCD3007A1031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EFEF67C1DD8D48800EA383E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,13 +412,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E34FA39279C86F400A735F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E34FA44279C86FE00A735F9 /* CGPathImage.swift in Sources */,
+				2E34FA45279C86FE00A735F9 /* CGPath+Intersections.swift in Sources */,
+				2E34FA46279C86FE00A735F9 /* CGPathImage+RawPixels.swift in Sources */,
+				2E34FA59279CC39C00A735F9 /* PlatformImage.swift in Sources */,
+				2E34FA47279C86FE00A735F9 /* Array+CoalescePoints.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E34FA48279C874C00A735F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E34FA56279C875100A735F9 /* CGPathIntersectionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE00F27A5BCD3007A1031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBDE02A27A5BCE3007A1031 /* PlatformImage.swift in Sources */,
+				2EBDE02927A5BCE3007A1031 /* Array+CoalescePoints.swift in Sources */,
+				2EBDE02D27A5BCE3007A1031 /* CGPathImage+RawPixels.swift in Sources */,
+				2EBDE02C27A5BCE3007A1031 /* CGPathImage.swift in Sources */,
+				2EBDE02B27A5BCE3007A1031 /* CGPath+Intersections.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBDE01627A5BCD3007A1031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBDE02827A5BCE0007A1031 /* CGPathIntersectionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EFEF6791DD8D48800EA383E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2EFEF6991DD8D5F000EA383E /* CGPathImage.swift in Sources */,
 				2EFEF69B1DD8E03200EA383E /* CGPath+Intersections.swift in Sources */,
-				2EFEF69F1DD8F6BD00EA383E /* UIImage+RawPixels.swift in Sources */,
+				2EFEF69F1DD8F6BD00EA383E /* CGPathImage+RawPixels.swift in Sources */,
+				2E34FA58279CC25000A735F9 /* PlatformImage.swift in Sources */,
 				2EFEF6A11DD8FFE400EA383E /* Array+CoalescePoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +475,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2E34FA52279C874C00A735F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E34FA3C279C86F400A735F9 /* CGPathIntersection-macOS */;
+			targetProxy = 2E34FA51279C874C00A735F9 /* PBXContainerItemProxy */;
+		};
+		2EBDE01D27A5BCD3007A1031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EBDE01227A5BCD3007A1031 /* CGPathIntersection-tvOS */;
+			targetProxy = 2EBDE01C27A5BCD3007A1031 /* PBXContainerItemProxy */;
+		};
 		2EFEF68A1DD8D48800EA383E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2EFEF67D1DD8D48800EA383E /* CGPathIntersection */;
@@ -235,6 +493,250 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		2E34FA42279C86F400A735F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Cal Stephens. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 4.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
+				PRODUCT_MODULE_NAME = CGPathIntersection;
+				PRODUCT_NAME = CGPathIntersection;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2E34FA43279C86F400A735F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Cal Stephens. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 4.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
+				PRODUCT_MODULE_NAME = CGPathIntersection;
+				PRODUCT_NAME = CGPathIntersection;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2E34FA54279C874C00A735F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tech.calstephens.CGPathIntersectionTests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2E34FA55279C874C00A735F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tech.calstephens.CGPathIntersectionTests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2EBDE02227A5BCD3007A1031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Cal Stephens. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 4.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
+				PRODUCT_NAME = CGPathIntersection;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		2EBDE02327A5BCD3007A1031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Cal Stephens. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 4.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
+				PRODUCT_NAME = CGPathIntersection;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		2EBDE02427A5BCD3007A1031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tech.calstephens.CGPathIntersection-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		2EBDE02527A5BCD3007A1031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tech.calstephens.CGPathIntersection-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Release;
+		};
 		2EFEF6901DD8D48800EA383E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -286,7 +788,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -343,7 +846,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -368,7 +872,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -391,7 +896,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -406,10 +912,12 @@
 				DEVELOPMENT_TEAM = FZ89A5SZ7C;
 				INFOPLIST_FILE = CGPathIntersectionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersectionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
@@ -420,16 +928,54 @@
 				DEVELOPMENT_TEAM = FZ89A5SZ7C;
 				INFOPLIST_FILE = CGPathIntersectionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.calstephens.CGPathIntersectionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E34FA41279C86F400A735F9 /* Build configuration list for PBXNativeTarget "CGPathIntersection-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E34FA42279C86F400A735F9 /* Debug */,
+				2E34FA43279C86F400A735F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E34FA53279C874C00A735F9 /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E34FA54279C874C00A735F9 /* Debug */,
+				2E34FA55279C874C00A735F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EBDE02627A5BCD3007A1031 /* Build configuration list for PBXNativeTarget "CGPathIntersection-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EBDE02227A5BCD3007A1031 /* Debug */,
+				2EBDE02327A5BCD3007A1031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EBDE02727A5BCD3007A1031 /* Build configuration list for PBXNativeTarget "CGPathIntersection-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EBDE02427A5BCD3007A1031 /* Debug */,
+				2EBDE02527A5BCD3007A1031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2EFEF6781DD8D48800EA383E /* Build configuration list for PBXProject "CGPathIntersection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -448,7 +994,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EFEF6951DD8D48800EA383E /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests" */ = {
+		2EFEF6951DD8D48800EA383E /* Build configuration list for PBXNativeTarget "CGPathIntersectionTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EFEF6961DD8D48800EA383E /* Debug */,
