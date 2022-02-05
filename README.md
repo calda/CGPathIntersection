@@ -14,7 +14,7 @@ Add the following dependency to your package definition:
 .package(
   name: "CGPathIntersection",
   url: "https://github.com/calda/CGPathIntersection.git",
-  from: "4.0")
+  from: "4.0.0")
 ```
 
 #### [Carthage](https://github.com/Carthage/Carthage)
